@@ -2,6 +2,7 @@ var canvas = null
 var ctx = null
 var x = 0
 var y = 0
+var lastPress = null 
 
 window.requestAnimationFrame = ( function () {
     return window.requestAnimationFrame ||
@@ -42,6 +43,10 @@ function init() {
     ctx = canvas.getContext('2d')
     run()
 }
+
+document.addEventListener('keydown', function (evt) {
+    lastPress = evt.which
+    }, false)
 
 window.addEventListener('load', init, false)
 
